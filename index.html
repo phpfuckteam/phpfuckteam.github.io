@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PHPFuck</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        * {
+            font-family: monospace !important;
+            font-size: 14px;
+            line-height: 1.4em;
+        }
+
+        .textarea {
+            height: 400px;
+            margin-bottom: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">
+                PHPFuck: ([+.^])
+            </h1>
+            <p class="subtitle">
+                Using only 7 different characters to write and execute php.
+            </p>
+            <hr>
+
+            <p class="content">
+                Use the form below to convert your php script. Uncheck `Eval Code` to get back a plain string.
+            </p>
+            <div class="columns">
+                <div class="column">
+                    <textarea id="code" class="textarea" placeholder="// your code here :)"></textarea>
+                    <label class="checkbox is-pulled-right">
+                        <input id="isEval" type="checkbox"> Eval Code
+                    </label>
+                </div>
+                <div class="column">
+                    <textarea id="output" class="textarea" placeholder="// ([+.^])" readonly></textarea>
+                    <button class="button is-small" id="download">Download</button>
+                    <button class="button is-small" id="copy">Copy</button>
+
+                    <div class="is-pulled-right">
+                        <span id="stats">0 chars.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <h1 class="title is-5">Links</h1>
+                <ul>
+                    <li>View source code on <a href="https://github.com/phpfuckteam">GitHub</a> (Python CLI
+                        version).</li>
+                    <li>Test any encoded code at <a href="https://phpfuck.com">PHPFuck</a> or <a
+                            href="http://jsfuck.com/">JSFuck</a>.</li>
+                </ul>
+                <h1 class="title is-5">How It Works?</h1>
+                <ul>
+                    <li>'ArrayArray' => [].[]</li>
+					<li>"0"==>`${nums[0]}.[][[]]`,</li></li>
+					<li>"1"==>`${nums[1]}.[][[]]`,</li></li>
+					<li>"2"==>`${nums[2]}.[][[]]`,</li></li>
+					<li>"3"==> `(${arrString})[${nums[0]}]^(${arrString})[${nums[1]}]`,</li></li>
+					<li>"4"==>`${nums[4]}.[][[]]`,</li></li>
+					<li>"5"==>`${nums[5]}.[][[]]`,</li></li>
+					<li>"6"==>`${nums[6]}.[][[]]`,</li></li>
+					<li>"7"==>`${nums[7]}.[][[]]`,</li></li>
+					<li>"8"==> `(${arrString})[${nums[0]}]^(${arrString})[${nums[4]}]`,</li></li>
+					<li>"9"==>`${nums[2]}.[][[]]^(${arrString})[${nums[1]}]^(${arrString})[${nums[4]}]`,</li></li>
+					<li>"a"==> `(${arrString})[${nums[3]}]`,</li>
+					<li>"b"==>`${nums[1]}.[][[]]^${nums[2]}.[][[]]^(${arrString})[${nums[3]}]`,</li>
+					<li>"c"==>`${nums[0]}.[][[]]^${nums[2]}.[][[]]^(${arrString})[${nums[3]}]`,</li>
+					<li>"d"==>`${nums[1]}.[][[]]^${nums[4]}.[][[]]^(${arrString})[${nums[3]}]`,</li>
+					<li>"e"==>`${nums[0]}.[][[]]^${nums[4]}.[][[]]^(${arrString})[${nums[3]}]`,</li>
+					<li>"f"==>`${nums[4]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[1]}]^(${arrString})[${nums[3]}]`,</li>
+					<li>"g"==>`${nums[2]}.[][[]]^${nums[4]}.[][[]]^(${arrString})[${nums[3]}]`,</li>
+					<li>"h"==>`${nums[1]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"i"==>`${nums[0]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"j"==> `(${arrString})[${nums[1]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"k"==>`${nums[2]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"l"==>`${nums[5]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"m"==>`${nums[4]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"n"==>`${nums[0]}.[][[]]^${nums[4]}.[][[]]^(${arrString})[${nums[1]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"o"==>`${nums[6]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"p"==>`${nums[1]}.[][[]]^(${arrString})[${nums[0]}]`,</li>
+					<li>"q"==>`${nums[0]}.[][[]]^(${arrString})[${nums[0]}]`,</li>
+					<li>"r"==> `(${arrString})[${nums[1]}]`,</li>
+					<li>"s"==>`${nums[2]}.[][[]]^(${arrString})[${nums[0]}]`,</li>
+					<li>"t"==>`${nums[5]}.[][[]]^(${arrString})[${nums[0]}]`,</li>
+					<li>"u"==>`${nums[4]}.[][[]]^(${arrString})[${nums[0]}]`,</li>
+					<li>"v"==>`${nums[0]}.[][[]]^${nums[4]}.[][[]]^(${arrString})[${nums[1]}]`,</li>
+					<li>"w"==>`${nums[6]}.[][[]]^(${arrString})[${nums[0]}]`,</li>
+					<li>"x"==>`${nums[0]}.[][[]]^${nums[1]}.[][[]]^(${arrString})[${nums[4]}]`,</li>
+					<li>"y"==> `(${arrString})[${nums[4]}]`,</li>
+					<li>"z"==>`${nums[1]}.[][[]]^${nums[2]}.[][[]]^(${arrString})[${nums[4]}]`,</li>
+					<li>"A"==> `(${arrString})[${nums[0]}]`,</li>
+					<li>"B"==>`${nums[0]}.[][[]]^(${arrString})[${nums[1]}]`,</li>
+					<li>"C"==>`${nums[1]}.[][[]]^(${arrString})[${nums[1]}]`,</li>
+					<li>"D"==>`${nums[1]}.[][[]]^${nums[4]}.[][[]]^(${arrString})[${nums[0]}]`,</li>
+					<li>"E"==>`${nums[0]}.[][[]]^${nums[4]}.[][[]]^(${arrString})[${nums[0]}]`,</li>
+					<li>"F"==>`${nums[4]}.[][[]]^(${arrString})[${nums[1]}]`,</li>
+					<li>"G"==>`${nums[5]}.[][[]]^(${arrString})[${nums[1]}]`,</li>
+					<li>"H"==>`${nums[1]}.[][[]]^(${arrString})[${nums[4]}]`,</li>
+					<li>"I"==>`${nums[0]}.[][[]]^(${arrString})[${nums[4]}]`,</li>
+					<li>"J"==> `(${arrString})[${nums[0]}]^(${arrString})[${nums[1]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"K"==>`${nums[2]}.[][[]]^(${arrString})[${nums[4]}]`,</li>
+					<li>"L"==>`${nums[5]}.[][[]]^(${arrString})[${nums[4]}]`,</li>
+					<li>"M"==>`${nums[4]}.[][[]]^(${arrString})[${nums[4]}]`,</li>
+					<li>"N"==>`${nums[7]}.[][[]]^(${arrString})[${nums[4]}]`,</li>
+					<li>"O"==>`${nums[6]}.[][[]]^(${arrString})[${nums[4]}]`,</li>
+					<li>"P"==>`${nums[1]}.[][[]]^(${arrString})[${nums[3]}]`,</li>
+					<li>"Q"==>`${nums[0]}.[][[]]^(${arrString})[${nums[3]}]`,</li>
+					<li>"R"==> `(${arrString})[${nums[0]}]^(${arrString})[${nums[1]}]^(${arrString})[${nums[3]}]`,</li>
+					<li>"S"==>`${nums[2]}.[][[]]^(${arrString})[${nums[3]}]`,</li>
+					<li>"T"==>`${nums[5]}.[][[]]^(${arrString})[${nums[3]}]`,</li>
+					<li>"U"==>`${nums[4]}.[][[]]^(${arrString})[${nums[3]}]`,</li>
+					<li>"V"==>`${nums[7]}.[][[]]^(${arrString})[${nums[3]}]`,</li>
+					<li>"W"==>`${nums[6]}.[][[]]^(${arrString})[${nums[3]}]`,</li>
+					<li>"X"==>`${nums[2]}.[][[]]^(${arrString})[${nums[1]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"Y"==> `(${arrString})[${nums[0]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"Z"==>`${nums[0]}.[][[]]^(${arrString})[${nums[1]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"!"==>`${nums[2]}.[][[]]^(${arrString})[${nums[1]}]^(${arrString})[${nums[3]}]`,</li>
+					<li>"\""==>`${nums[1]}.[][[]]^(${arrString})[${nums[1]}]^(${arrString})[${nums[3]}]`,</li>
+					<li>"#"==>`${nums[0]}.[][[]]^(${arrString})[${nums[1]}]^(${arrString})[${nums[3]}]`,</li>
+					<li>"$"==>`${nums[0]}.[][[]]^${nums[4]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[3]}]`,</li>
+					<li>"%"==>`${nums[1]}.[][[]]^${nums[4]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[3]}]`,</li>
+					<li>"&"==>`${nums[5]}.[][[]]^(${arrString})[${nums[1]}]^(${arrString})[${nums[3]}]`,</li>
+					<li>"'"==>`${nums[4]}.[][[]]^(${arrString})[${nums[1]}]^(${arrString})[${nums[3]}]`,</li>
+					<li>"("==>`${nums[0]}.[][[]]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>")"==>`${nums[1]}.[][[]]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"*"==>`${nums[2]}.[][[]]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"+"==> `(${arrString})[${nums[0]}]^(${arrString})[${nums[1]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>","==>`${nums[4]}.[][[]]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"-"==>`${nums[5]}.[][[]]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"."==>`${nums[6]}.[][[]]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"/"==>`${nums[7]}.[][[]]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>":"==>`${nums[1]}.[][[]]^(${arrString})[${nums[1]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>";"==>`${nums[0]}.[][[]]^(${arrString})[${nums[1]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"<"==>`${nums[0]}.[][[]]^${nums[4]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"="==>`${nums[1]}.[][[]]^${nums[4]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>">"==>`${nums[5]}.[][[]]^(${arrString})[${nums[1]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"?"==>`${nums[4]}.[][[]]^(${arrString})[${nums[1]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"@"==>`${nums[2]}.[][[]]^(${arrString})[${nums[1]}]`,</li>
+					<li>"["==>`${nums[1]}.[][[]]^(${arrString})[${nums[1]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"\\"==>`${nums[1]}.[][[]]^${nums[4]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"]"==>`${nums[0]}.[][[]]^${nums[4]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"^"==>`${nums[4]}.[][[]]^(${arrString})[${nums[1]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"_"==>`${nums[5]}.[][[]]^(${arrString})[${nums[1]}]^(${arrString})[${nums[3]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"`"==>`${nums[0]}.[][[]]^${nums[1]}.[][[]]^(${arrString})[${nums[3]}]`,</li>
+					<li>"{"==>`${nums[0]}.[][[]]^${nums[2]}.[][[]]^(${arrString})[${nums[4]}]`,</li>
+					<li>"|"==>`${nums[1]}.[][[]]^${nums[4]}.[][[]]^(${arrString})[${nums[4]}]`,</li>
+					<li>"}"==>`${nums[0]}.[][[]]^${nums[4]}.[][[]]^(${arrString})[${nums[4]}]`,</li>
+					<li>"~"==>`${nums[4]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[1]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>" "==> `(${arrString})[${nums[0]}]^(${arrString})[${nums[3]}]`,</li>
+					<li>"\t"==>`${nums[1]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"\n"==>`${nums[2]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"\r"==>`${nums[5]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"\u000b"==> `(${arrString})[${nums[1]}]^(${arrString})[${nums[4]}]`,</li>
+					<li>"\f"==>`${nums[4]}.[][[]]^(${arrString})[${nums[0]}]^(${arrString})[${nums[4]}]`
+                    <li>NULL => [][[]]</li>
+                    <li>'🐱' => IntlChar::chr(0x1f431) => ['IntlChar', 'chr'](0x1f431)</li>
+                    <li>eval(CODE) => 'create_function'('', CODE)()</li>
+                </ul>
+
+                <p>See the full list <a href="https://github.com/phpfuckteam">here</a>.</p>
+            </div>
+
+        </div>
+    </section>
+    <script src="./phpfuck.js"></script>
+    <script>
+        const phpfuck = new PHPFuck();
+
+        isEval.addEventListener('input', function (event) {
+            render(code.value, event.target.checked);
+        })
+        code.addEventListener('input', function (event) {
+            render(event.target.value, isEval.checked);
+        });
+        download.addEventListener('click', function () {
+            const blob = new Blob([output.value], {
+                type: "application/php"
+            });
+            const elem = document.createElement('a');
+            elem.href = URL.createObjectURL(blob);
+            elem.download = 'phpfucked.php';
+            document.body.appendChild(elem);
+            elem.click();
+            document.body.removeChild(elem);
+        });
+        copy.addEventListener('click', function () {
+            output.select();
+            try {
+                document.execCommand('copy') || alert('Copy failed :/');;
+            } catch (error) {
+                alert('Copy failed :/');
+            }
+            window.getSelection().removeAllRanges();
+        });
+
+        function render(code, eval) {
+            const encoded = phpfuck.encode(code, code && eval && 'create_function');
+            document.getElementById("stats").textContent = `${encoded.length} chars.`;
+            output.value = encoded;
+        }
+    </script>
+</body>
+
+</html>
